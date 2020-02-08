@@ -1,10 +1,19 @@
 {
-  "name": "first-app",
+  "name": "first-app-demo",
   "version": "0.1.0",
-  "private": true,
+  "private": false,
+  "files": [
+    "dist/*",
+    "src/*",
+    "public/*",
+    "*.json",
+    "*.js"
+  ],
+  "main": "./dist/helloworld.common.js",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
+    "build-bundle": "vue-cli-service build --target lib --name helloworld ./src/index.js",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
