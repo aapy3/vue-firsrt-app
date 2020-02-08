@@ -10,10 +10,11 @@
     "*.js"
   ],
   "main": "./dist/helloworld.common.js",
+  "unpkg": "dist/helloworld.umd.min.js",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "build-bundle": "vue-cli-service build --target lib --name helloworld ./src/index.js",
+    "build-bundle": "rimraf ./dist && webpack --config ./webpack.config.js",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
@@ -27,7 +28,11 @@
     "babel-eslint": "^10.0.3",
     "eslint": "^5.16.0",
     "eslint-plugin-vue": "^5.0.0",
-    "vue-template-compiler": "^2.6.10"
+    "vue-loader": "^15.8.3",
+    "vue-template-compiler": "^2.6.10",
+    "webpack": "^4.41.5",
+    "webpack-cli": "^3.3.10",
+    "webpack-merge": "^4.2.2"
   },
   "eslintConfig": {
     "root": true,
