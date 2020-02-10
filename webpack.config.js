@@ -1,6 +1,8 @@
 const merge = require('webpack-merge');
 const path = require('path');
 const { VueLoaderPlugin } = require('vue-loader');
+const CompressionPlugin = require('compression-webpack-plugin');
+
 
 var config = {
     mode: 'production',
@@ -30,7 +32,13 @@ var config = {
           }
         }
     },
-    plugins: [new VueLoaderPlugin()],
+    plugins: [
+            new VueLoaderPlugin(), 
+            new CompressionPlugin({
+                test: /\.js(\?.*)?$/i,
+                algorithm: 'gzip',
+            })
+    ],
     module: {
         rules: [
           {
